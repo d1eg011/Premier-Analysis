@@ -1,6 +1,8 @@
 # Premier-Analysis
 This project extracts data from Biwenger (Premier League fantasy football) and use it for machine learning purposes. The goal is to study player performance trends, pricing behavior, and position-based patterns with real-world fantasy football data.
 
+**Daily updates with new data are scheduled at 00:03**
+
 ## Current features
 
 **Daily_data**: csv's containing the data of the day indicated in each file.
