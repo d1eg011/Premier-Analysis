@@ -7,7 +7,7 @@ from datetime import datetime
 import pandas as pd
 
 # === Set your download directory ===
-download_dir = "/home/diego/Premier-Analysis/Daily_data"
+download_dir = "/home/diego/Premier-Analysis/Daily_Data"
 
 options = Options()
 options.add_argument("--headless")  # crucial for cron
@@ -45,9 +45,9 @@ driver.find_element(By.XPATH, "//button[.//span[text()='Export']]").click()
 # === Wait to ensure download starts ===
 time.sleep(10)
 
-old_path = os.path.join("/home/diego/Premier-Analysis/Daily_data", "premier-league.csv")
+old_path = os.path.join("/home/diego/Premier-Analysis/Daily_Data", "premier-league.csv")
 new_name = datetime.now().strftime("%Y-%m-%d") + ".csv"
-new_path = os.path.join("/home/diego/Premier-Analysis/Daily_data", new_name)
+new_path = os.path.join("/home/diego/Premier-Analysis/Daily_Data", new_name)
 os.rename(old_path, new_path)
 
 # === Quit the browser ===

@@ -1,7 +1,7 @@
 import pandas as pd
 
-df_1 = pd.read_csv("/home/diego/Premier-Analysis/Daily_data/2025-07-11.csv", sep=';')
-df_2 = pd.read_csv("/home/diego/Premier-Analysis/Daily_data/2025-07-12.csv", sep=';')
+df_1 = pd.read_csv("/home/diego/Premier-Analysis/Daily_Data/2025-07-11.csv", sep=';')
+df_2 = pd.read_csv("/home/diego/Premier-Analysis/Daily_Data/2025-07-12.csv", sep=';')
 
 df_1.insert(0, "Date", "2025-07-11") # Add date column
 df_2.insert(0, "Date", "2025-07-12") # Add date column

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Go to your repo directory
-cd .. || exit 1
+cd /home/diego/Premier-Analysis || exit 1
 
 # Add all changes
 git add .
