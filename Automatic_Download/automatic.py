@@ -55,14 +55,16 @@ driver.quit()
 
 # === Add data to master file ===
 df_today = pd.read_csv(new_path, sep=';')
-df_today.insert(0, "Date", datetime.now().strftime("%Y-%m-%d"))
+df_today.to_csv(new_path, index=False) #Change ; to ,
+df_today = pd.read_csv(new_path, sep=',') #Re-read the new file with commas
+df_today.insert(0, "Date", datetime.now().strftime("%Y-%m-%d")) #Create Date column
 
 master_file = "/home/diego/Premier-Analysis/all_data.csv"
 
 if os.path.exists(master_file):
-    df_master = pd.read_csv(master_file, sep=';')
+    df_master = pd.read_csv(master_file, sep=',')
     df_combined = pd.concat([df_master, df_today], ignore_index=True)
 else:
     df_combined = df_today
 
-df_combined.to_csv(master_file, index=False, sep=';')
+df_combined.to_csv(master_file, index=False, sep=',')
