@@ -5,7 +5,7 @@ This project extracts data from Biwenger (Premier League fantasy football) and u
 
 ## Current features
 
-**Daily_data**: csv's containing the data of the day indicated in each file.
+**Daily_Data**: csv's containing the data of the day indicated in each file.
 
 **all_data.csv**: csv containing all the data of all dates available (Date column added).
 
