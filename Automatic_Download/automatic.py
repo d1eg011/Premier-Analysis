@@ -10,7 +10,7 @@ import pandas as pd
 download_dir = "/home/diego/Premier-Analysis/Daily_Data"
 
 options = Options()
-#options.add_argument("--headless")  # crucial for cron
+options.add_argument("--headless")  # crucial for cron
 
 # === Configure Chrome to auto-download files ===
 options.add_experimental_option("prefs", {
