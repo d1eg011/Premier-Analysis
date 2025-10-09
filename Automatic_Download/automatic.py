@@ -10,7 +10,7 @@ import pandas as pd
 download_dir = "/home/diego/Premier-Analysis/Daily_Data"
 
 options = Options()
-options.add_argument("--headless")  # crucial for cron
+#options.add_argument("--headless")  # crucial for cron
 
 # === Configure Chrome to auto-download files ===
 options.add_experimental_option("prefs", {
@@ -29,7 +29,7 @@ driver.get("https://biwenger.as.com/players")  # URL of list of players from Biw
 # === Simulate the clicks that lead to the CSV download ===
 
 time.sleep(5)  # Let the page load
-#driver.find_element(By.ID, "didomi-notice-agree-button").click() : Necessary only when headless is off
+#driver.find_element(By.ID, "didomi-notice-agree-button").click() #: Necessary only when headless is off
 time.sleep(1)
 driver.find_element(By.XPATH, "//a[text()='Already have an account']").click()
 time.sleep(1)
