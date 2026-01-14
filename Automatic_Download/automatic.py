@@ -11,6 +11,10 @@ download_dir = "/home/diego/Premier-Analysis/Daily_Data"
 
 options = Options()
 options.add_argument("--headless")  # crucial for cron
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--disable-gpu")
+
 
 # === Configure Chrome to auto-download files ===
 options.add_experimental_option("prefs", {
@@ -22,9 +26,36 @@ options.add_experimental_option("prefs", {
 
 # === Launch browser ===
 driver = webdriver.Chrome(options=options)
+driver.set_page_load_timeout(180)
 
 # === Open the webpage ===
 driver.get("https://biwenger.as.com/players")  # URL of list of players from Biwenger
+
+# === Error handling ===
+
+def safe_click_menu(driver):
+    try:
+        driver.find_element(By.CLASS_NAME, "mat-mdc-menu-trigger").click()
+        return
+    except ElementClickInterceptedException:
+        pass
+
+    # Popup handling (only if click was intercepted)
+    try:
+        driver.find_element(By.ID, "didomi-notice-agree-button").click()
+        time.sleep(1)
+    except NoSuchElementException:
+        pass
+
+    try:
+        driver.find_element(By.CLASS_NAME, "close-button").click()
+        time.sleep(1)
+    except NoSuchElementException:
+        pass
+
+    # Retry click
+    driver.find_element(By.CLASS_NAME, "mat-mdc-menu-trigger").click()
+
 
 # === Simulate the clicks that lead to the CSV download ===
 
@@ -38,9 +69,7 @@ driver.find_element(By.NAME, "password").send_keys("pruebas123")
 time.sleep(1)
 driver.find_element(By.XPATH, "//button[@type='submit']").click()
 time.sleep(5)
-#driver.find_element(By.CLASS_NAME, "close-button").click()
-#time.sleep(1)
-driver.find_element(By.CLASS_NAME, "mat-mdc-menu-trigger").click()
+safe_click_menu(driver)
 time.sleep(1)
 driver.find_element(By.XPATH, "//button[.//span[text()='Export']]").click()
 
