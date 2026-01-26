@@ -11,4 +11,6 @@ This project extracts data from Biwenger (Premier League fantasy football) and u
 
 **Automatic_Download**: folder containing the scripts for downloading automatically csv's from Biwenger. 
 
-I have to be honest: I kind of forgot of this project for a few months. It stopped working for a reason still unknown (probably a new pop-up in the Biwenger web-page). It should be running with no errors from now on. I'll be paying attention to any new problems with the automatic update, I promise :).
+**Analysis**: folder containing data analysis exercises using all_data.csv.
+
+**price_forecasting.ipynb**: Jupyter Notebook containing different machine learning models used to forecast the next day price for Premier League fantasy football players.
